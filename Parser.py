@@ -41,14 +41,15 @@ def getNextDay(fp):
 
     while line:
 
-        # if at beginning of week
+        # if at new day
         for day in days_of_the_week:
             if line.__contains__(day):
                 continue
 
         # if line has score data
         team1, team2 = getGameData(line)
-        games.append((team1, team2))
+        if team1[0] != "-" and team2[0] != "-":
+            games.append((team1, team2))
 
         # if at end of week
         if line.__contains__(standings):

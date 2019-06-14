@@ -11,9 +11,6 @@ teamNames = []
 
 
 def addSingleEntry(team1, team2):
-    if team1[0] == "-" or team2[0] == "-":
-        return
-
     if not teamNames.__contains__(team1[0]):
         teamNames.append(team1[0])
         teams[team1[0]] = [Rating()]
@@ -49,17 +46,17 @@ def predictOutcomesByProbability(games):
     for game in games:
         team1 = game[0]
         team2 = game[1]
-        if team1[0] != "-" and team1[0] != "-":
-            prob = "{0:.2f}".format(win_probability(teams[team1[0]], teams[team2[0]]))
-            print(team1[0], "has a", prob, "chance of beating", team2[0])
-            if team1[1] > team2[1]:
-                print(team1[0], "beat", team2[0], team1[1], "to", team2[1])
 
-            if team1[1] < team2[1]:
-                print(team1[0], "lost to", team2[0], team1[1], "to", team2[1])
+        prob = "{0:.2f}".format(win_probability(teams[team1[0]], teams[team2[0]]))
+        print(team1[0], "has a", prob, "chance of beating", team2[0])
+        if team1[1] > team2[1]:
+            print(team1[0], "beat", team2[0], team1[1], "to", team2[1])
 
-            if team1[1] == team2[1]:
-                print(team1[0], "tied", team2[0], team1[1], "to", team2[1])
+        if team1[1] < team2[1]:
+            print(team1[0], "lost to", team2[0], team1[1], "to", team2[1])
+
+        if team1[1] == team2[1]:
+            print(team1[0], "tied", team2[0], team1[1], "to", team2[1])
 
         print("")
 
@@ -68,19 +65,19 @@ def predictOutcomesByRating(games):
     for game in games:
         team1 = game[0]
         team2 = game[1]
-        if team1[0] != "-" and team1[0] != "-":
-            r1 = getRating(team1)
-            r2 = getRating(team2)
-            print(team1[0], "[", r1, "]\t", team2[0], "[", r2, "]")
 
-            if team1[1] > team2[1]:
-                print(team1[0], "beat", team2[0], team1[1], "to", team2[1])
+        r1 = getRating(team1)
+        r2 = getRating(team2)
+        print(team1[0], "[", r1, "]\t", team2[0], "[", r2, "]")
 
-            if team1[1] < team2[1]:
-                print(team1[0], "lost to", team2[0], team1[1], "to", team2[1])
+        if team1[1] > team2[1]:
+            print(team1[0], "beat", team2[0], team1[1], "to", team2[1])
 
-            if team1[1] == team2[1]:
-                print(team1[0], "tied", team2[0], team1[1], "to", team2[1])
+        if team1[1] < team2[1]:
+            print(team1[0], "lost to", team2[0], team1[1], "to", team2[1])
+
+        if team1[1] == team2[1]:
+            print(team1[0], "tied", team2[0], team1[1], "to", team2[1])
 
         print("")
 
